@@ -1,0 +1,38 @@
+body {
+    width: 1080px;
+    height: 100vh;
+}
+.botao {
+    width: 200px;
+    height: 150px;
+    font-size: 15px;
+    border-style: none;
+    background-color: #000000; 
+    color: rgb(255, 252, 252); 
+    cursor: pointer;
+}
+.texto {
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+}
+
+#pontos {
+    text-align: center;
+    position: fixed;
+}
+
+#button1 {
+    margin-left: 450px;
+}
+#button1:hover {
+    background-color: #444040; 
+}
+
+#buy1 {
+    margin-left: 250px;
+    margin-top: 20px;
+}
+
+#buy2 {
+    margin-top: 20px;
+}
