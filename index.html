@@ -15,11 +15,29 @@
 
     <button class="botao" id="button1">Me aperte!</button>
 
-    <div class="texto">Loja
+    <div class="loja" id="loja">
+        <div class="loja-header">
+            <div class="texto loja-titulo">Loja</div>
+                <button id="toggleLoja" class="minimizar-botao">−</button>
+        </div>
+        <div class="loja-upgrades" id="lojaUpgrades">
 
-    <button class="botao" id="upgrade1">Upgrade automatico Custo: 10 pontos</button>
-    <button class="botao" id="upgrade2">Upgrade automatico 2 Custo: 50 pontos</button>
+            <div class="upgrade-tooltip">
+                <button class="botao" id="upgrade1">Upgrade 1</button>
+                <span class="tooltip-text">Gera 1/s ponto</span>
+             </div>
 
+            <div class="upgrade-tooltip">
+                <button class="botao" id="upgrade2">Upgrade 2</button>
+                <span class="tooltip-text">Gera 2/s pontos</span>
+            </div>
+
+            <div class="upgrade-tooltip">
+                <button class="botao" id="upgrade3">Upgrade 3</button>
+                <span class="tooltip-text">Gera 10/s pontos</span>
+            </div>
+            <!-- Adicione mais botões conforme necessário -->
+        </div>
     </div>
 
     <script src="scripts/main.js" type="module"></script>
