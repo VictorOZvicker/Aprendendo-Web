@@ -38,7 +38,7 @@ body {
     color: #333;
 }
 
-.loja-upgrades {
+.loja-generators {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
@@ -47,11 +47,11 @@ body {
 }
 
 
-.loja-upgrades .botao:hover {
+.loja-generators .botao:hover {
     background: #444040;
 }
 
-.upgrade-tooltip {
+.generator-tooltip {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@ body {
     height: 100%;
 }
 
-.upgrade-tooltip .botao {
+.generator-tooltip .botao {
     width: 100%;
     min-width: 0;
     height: 150px;
@@ -81,7 +81,7 @@ body {
     text-align: center;
     border-radius: 6px;
 }
-.upgrade-tooltip:hover .tooltip-text {
+.generator-tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
@@ -108,12 +108,12 @@ body {
     background: #222;
 }
 
-.loja-upgrades {
+.loja-generators {
     transition: max-height 0.3s, opacity 0.3s;
     /*overflow: hidden; */
 }
 
-.loja-upgrades.escondida {
+.loja-generators.escondida {
     max-height: 0;
     opacity: 0;
     pointer-events: none;
