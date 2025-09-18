@@ -80,20 +80,6 @@ body {
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 10;
-    bottom: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.2s;
-    font-size: 1em;
-    pointer-events: none;
-    max-width: 95vw;
-    box-sizing: border-box;
-    white-space: pre-line;
-    z-index: 99999;
 }
 .upgrade-tooltip:hover .tooltip-text {
     visibility: visible;
@@ -124,7 +110,7 @@ body {
 
 .loja-upgrades {
     transition: max-height 0.3s, opacity 0.3s;
-    overflow: hidden;
+    /*overflow: hidden; */
 }
 
 .loja-upgrades.escondida {
@@ -142,17 +128,4 @@ body {
 
 #button1 {
     margin-left: 450px;
-}
-
-#button1:hover {
-    background-color: #444040; 
-}
-
-#buy1 {
-    margin-left: 250px;
-    margin-top: 20px;
-}
-
-#buy2 {
-    margin-top: 20px;
 }
