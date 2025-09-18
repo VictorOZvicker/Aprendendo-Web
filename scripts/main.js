@@ -1,30 +1,30 @@
-import Upgrade from "./Upgrades.js";
+import Generator from "./Generators.js";
 
 const botao = document.getElementById('button1');
 
-const upgrade1Button = document.getElementById('upgrade1');
-const upgrade2Button = document.getElementById('upgrade2');
-const upgrade3Button = document.getElementById('upgrade3');
+const generator1Button = document.getElementById('generator1');
+const generator2Button = document.getElementById('generator2');
+const generator3Button = document.getElementById('generator3');
 
 const display = document.getElementById('pontos');
 
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('toggleLoja');
-    const lojaUpgrades = document.getElementById('lojaUpgrades');
+    const lojagenerators = document.getElementById('lojagenerators');
 
     toggleBtn.addEventListener('click', () => {
-        lojaUpgrades.classList.toggle('escondida');
-        toggleBtn.textContent = lojaUpgrades.classList.contains('escondida') ? '+' : '−';
+        lojagenerators.classList.toggle('escondida');
+        toggleBtn.textContent = lojagenerators.classList.contains('escondida') ? '+' : '−';
     });
 });
 
 
-let upgradeTotal = []
+let generatorTotal = []
 let pontos = 0;
 
-upgradeTotal.push(new Upgrade("Upgrade Automatico 1", 10, 1.15, 1));
-upgradeTotal.push(new Upgrade("Upgrade Automatico 2", 50, 1.35, 2));
-upgradeTotal.push(new Upgrade("Upgrade Automatico 3", 150, 1.5, 10));
+generatorTotal.push(new Generator("generator Automatico 1", 10, 1.15, 1));
+generatorTotal.push(new Generator("generator Automatico 2", 50, 1.35, 2));
+generatorTotal.push(new Generator("generator Automatico 3", 150, 1.5, 10));
 
 let deltaTime = 0;
 let lastTime = 0;
@@ -64,9 +64,9 @@ function render() {
   // como a quantidade de ouro, custos dos itens, etc.
   // document.getElementById('gold-display').innerText = Math.floor(totalGold);
   display.innerText = `Pontos: ${Math.floor(pontos)}`;
-  upgrade1Button.innerText = `Upgrade Nv 1 Custo: ${Math.floor(upgradeTotal[0].getPrecoAtual())} pontos`
-  upgrade2Button.innerText = `Upgrade Nv 2 Custo: ${Math.floor(upgradeTotal[1].getPrecoAtual())} pontos`
-  upgrade3Button.innerText = `Upgrade Nv 3 Custo: ${Math.floor(upgradeTotal[2].getPrecoAtual())} pontos`
+  generator1Button.innerText = `generator Nv 1 Custo: ${Math.floor(generatorTotal[0].getTotalPrice())} pontos \n Atualmente: ${generatorTotal[0].getTotalProduction()} /s`
+  generator2Button.innerText = `generator Nv 2 Custo: ${Math.floor(generatorTotal[1].getTotalPrice())} pontos \n Atualmente: ${generatorTotal[1].getTotalProduction()} /s`
+  generator3Button.innerText = `generator Nv 3 Custo: ${Math.floor(generatorTotal[2].getTotalPrice())} pontos \n Atualmente: ${generatorTotal[2].getTotalProduction()} /s`
 }
 
 function clicker() {
@@ -76,16 +76,16 @@ function clicker() {
 
 function producaoAutomatica() {
 
-  for(let i = 0; i < upgradeTotal.length; i++) {
-    pontos += upgradeTotal[i].getProducaoTotal() * (deltaTime / 1000);
+  for(let i = 0; i < generatorTotal.length; i++) {
+    pontos += generatorTotal[i].getTotalProduction() * (deltaTime / 1000);
   }
 }
 
 
 botao.addEventListener("click", clicker);
-upgrade1Button.addEventListener("click", () => pontos = upgradeTotal[0].comprar(pontos));
-upgrade2Button.addEventListener("click", () => pontos = upgradeTotal[1].comprar(pontos));
-upgrade3Button.addEventListener("click", () => pontos = upgradeTotal[2].comprar(pontos));
+generator1Button.addEventListener("click", () => pontos = generatorTotal[0].buy(pontos));
+generator2Button.addEventListener("click", () => pontos = generatorTotal[1].buy(pontos));
+generator3Button.addEventListener("click", () => pontos = generatorTotal[2].buy(pontos));
 
 
 requestAnimationFrame(gameLoop);
