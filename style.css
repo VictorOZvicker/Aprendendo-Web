@@ -16,30 +16,42 @@ button {
     background: #000000;
     color: #ffffff;
     cursor: pointer;
-    position: relative;       /* necessário para o ::after */
-    overflow: hidden;         /* evita que o texto saia */
+    position: relative;
+    overflow: hidden;
     transition: color 0.3s ease;
 }
-
-/* esconde o texto suavemente */
-button.tooltip-button:hover {
-    color: transparent;
+button.tooltip-button {
+    width: 200px;
+    height: 150px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    transition: background 0.3s ease;
 }
 
-/* legenda no mesmo local do texto */
+/* cria a tooltip */
 button.tooltip-button::after {
     content: attr(tooltip-text);
     position: absolute;
-    left: 50%;
+    left: 105%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    background: #333;
     color: white;
-    opacity: 0;               /* começa invisível */
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.3s ease;
-    pointer-events: none;     /* não atrapalha clique */
+    font-size: 0.9em;
 }
 
-/* ao hover, mostra a legenda */
 button.tooltip-button:hover::after {
     opacity: 1;
 }
