@@ -11,33 +11,34 @@
 
 <body id="body">
 
-    <div class="texto" id="pontos"></div>
-
-    <button class="botao" id="button1">Me aperte!</button>
-
-    <div class="loja" id="loja">
+    <div class="pontos-section">
+        <div class="texto" id="pontos">0 Pontos</div>
+        <button id="button1">Me aperte!</button>
+    </div>
+    
+    <div class="loja-section" id="loja">
         <div class="loja-header">
-            <div class="texto loja-titulo">Loja</div>
-                <button id="toggleLoja" class="minimizar-botao">−</button>
+            <span class="texto section-title">Loja</span>
         </div>
         <div class="loja-upgrades" id="lojaUpgrades">
-
             <div class="upgrade-tooltip">
-                <button class="botao" id="upgrade1">Upgrade 1</button>
-                <span class="tooltip-text">Gera 1/s ponto</span>
+                <button class="tooltip-button" id="upgrade1" tooltip-text="Gera 1/s ponto">Upgrade 1</button>
             </div>
 
             <div class="upgrade-tooltip">
-                <button class="botao" id="upgrade2">Upgrade 2</button>
-                <span class="tooltip-text">Gera 2/s pontos</span>
+                <button class="tooltip-button" id="upgrade2" tooltip-text="Gera 2/s pontos">Upgrade 2</button>
             </div>
 
             <div class="upgrade-tooltip">
-                <button class="botao" id="upgrade3">Upgrade 3</button>
-                <span class="tooltip-text">Gera 10/s pontos</span>
+                <button class="tooltip-button" id="upgrade3" tooltip-text="Gera 10/s pontos">Upgrade 3</button>
             </div>
         </div>
     </div>
+
+    <div class="itens-section">
+        Itens
+    </div>
+
 
     <script src="scripts/main.js" type="module"></script>
 </body>

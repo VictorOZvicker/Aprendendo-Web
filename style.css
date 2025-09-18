@@ -1,8 +1,13 @@
 body {
-    width: 1080px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100vh;
 }
-.botao {
+
+button {
     width: 200px;
     height: 150px;
     font-size: 1em;
@@ -11,27 +16,58 @@ body {
     background: #000000;
     color: #ffffff;
     cursor: pointer;
-    transition: background 0.2s;
-}
-.texto {
-    font-size: 50px;
-    color: rgb(0, 0, 0);
+    position: relative;       /* necessário para o ::after */
+    overflow: hidden;         /* evita que o texto saia */
+    transition: color 0.3s ease;
 }
 
-.loja {
-    margin-top: 40px;
-    padding: 24px;
-    padding-top: 30px;
-    background: #bbbda9;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(214, 14, 14, 0.07);
-    max-width: 1064px; /* Ajustado para caber 5 botões + gaps */
-    width: 100%;
-    position: relative;
-    z-index: 100;
+/* esconde o texto suavemente */
+button.tooltip-button:hover {
+    color: transparent;
 }
 
-.loja-titulo {
+/* legenda no mesmo local do texto */
+button.tooltip-button::after {
+    content: attr(tooltip-text);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;               /* começa invisível */
+    transition: opacity 0.3s ease;
+    pointer-events: none;     /* não atrapalha clique */
+}
+
+/* ao hover, mostra a legenda */
+button.tooltip-button:hover::after {
+    opacity: 1;
+}
+
+.pontos-section{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loja-section{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #c7c7c7;
+    align-items: center;
+}
+
+.itens-section{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #5e5e5e;
+    align-items: center;
+}
+
+.section-title {
     font-size: 1.5em;
     margin-bottom: 16px;
     font-weight: bold;
@@ -39,93 +75,13 @@ body {
 }
 
 .loja-upgrades {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
-    justify-items: stretch;
-    overflow: visible;
 }
 
 
 .loja-upgrades .botao:hover {
     background: #444040;
-}
-
-.upgrade-tooltip {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Ocupa toda a célula do grid */
-    height: 100%;
-}
-
-.upgrade-tooltip .botao {
-    width: 100%;
-    min-width: 0;
-    height: 150px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: none;
-    background: #000000;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.tooltip-text {
-    visibility: hidden;
-    width: 180px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-}
-.upgrade-tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-.loja-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.minimizar-botao {
-    background: #444040;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.minimizar-botao:hover {
-    background: #222;
-}
-
-.loja-upgrades {
-    transition: max-height 0.3s, opacity 0.3s;
-    /*overflow: hidden; */
-}
-
-.loja-upgrades.escondida {
-    max-height: 0;
-    opacity: 0;
-    pointer-events: none;
-    padding: 0;
-    margin: 0;
-}
-
-#pontos {
-    text-align: center;
-    position: fixed;
-}
-
-#button1 {
-    margin-left: 450px;
 }
