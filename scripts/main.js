@@ -6,25 +6,14 @@ const generator1Button = document.getElementById('generator1');
 const generator2Button = document.getElementById('generator2');
 const generator3Button = document.getElementById('generator3');
 
-const display = document.getElementById('pontos');
-
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('toggleLoja');
-    const lojagenerators = document.getElementById('lojagenerators');
-
-    toggleBtn.addEventListener('click', () => {
-        lojagenerators.classList.toggle('escondida');
-        toggleBtn.textContent = lojagenerators.classList.contains('escondida') ? '+' : '−';
-    });
-});
-
+const display = document.getElementById('qntyPoints');
 
 let generatorTotal = []
 let pontos = 0;
 
-generatorTotal.push(new Generator("generator Automatico 1", 10, 1.15, 1));
-generatorTotal.push(new Generator("generator Automatico 2", 50, 1.35, 2));
-generatorTotal.push(new Generator("generator Automatico 3", 150, 1.5, 10));
+generatorTotal.push(new Generator("generator Automatico 1", 10, 1.5, 1));
+generatorTotal.push(new Generator("generator Automatico 2", 50, 1.7, 2));
+generatorTotal.push(new Generator("generator Automatico 3", 150, 2, 10));
 
 let deltaTime = 0;
 let lastTime = 0;
@@ -63,7 +52,7 @@ function render() {
   // Aqui você atualiza a interface do usuário (UI) com os novos valores,
   // como a quantidade de ouro, custos dos itens, etc.
   // document.getElementById('gold-display').innerText = Math.floor(totalGold);
-  display.innerText = `Pontos: ${Math.floor(pontos)}`;
+  display.innerText = `${Math.floor(pontos)}`;
   generator1Button.innerText = `generator Nv 1 Custo: ${Math.floor(generatorTotal[0].getTotalPrice())} pontos \n Atualmente: ${generatorTotal[0].getTotalProduction()} /s`
   generator2Button.innerText = `generator Nv 2 Custo: ${Math.floor(generatorTotal[1].getTotalPrice())} pontos \n Atualmente: ${generatorTotal[1].getTotalProduction()} /s`
   generator3Button.innerText = `generator Nv 3 Custo: ${Math.floor(generatorTotal[2].getTotalPrice())} pontos \n Atualmente: ${generatorTotal[2].getTotalProduction()} /s`
@@ -71,7 +60,7 @@ function render() {
 
 function clicker() {
     pontos++;
-    display.innerText = `Pontos: ${pontos}`;
+    display.innerText = `${Math.floor(pontos)}`;
 }
 
 function producaoAutomatica() {
