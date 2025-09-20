@@ -12,8 +12,8 @@
 <body id="body">
 
     <div class="pontos-section">
-        <div class="texto" id="pontos">0 Pontos</div>
-        <button id="button1">Me aperte!</button>
+        <div class="texto" id="labelPoints">Pontos:<span id="qntyPoints"></span></div>
+        <button id="button1"></button>
     </div>
     
     <div class="loja-section" id="loja">
@@ -22,18 +22,18 @@
         </div>
         <div class="loja-upgrades" id="lojaUpgrades">
             
-            <div class="upgrade-item">
+            <div class="upgrade-item"  id="generator1">
                 <span class="upgrade-image"></span>
                 <div class="upgrade-info" tooltip-text="Gera 1/s ponto">
                     <span class="upgrade-title">Upgrade 1</span>
                     <span class="upgrade-description">teste</span>
                 </div>
-                <span class="upgrade-level">
+                <span class="upgrade-level" id="levelDetails">
                     <span id="upgradeLevel">1</span>
                 </span>
             </div>
 
-            <div class="upgrade-item">
+            <div class="upgrade-item"  id="generator2">
                 <span class="upgrade-image"></span>
                 <div class="upgrade-info" tooltip-text="Gera 2/s pontos">
                     <span class="upgrade-title">Upgrade 2</span>
@@ -44,7 +44,7 @@
                 </span>
             </div>
 
-            <div class="upgrade-item">
+            <div class="upgrade-item"  id="generator3">
                 <span class="upgrade-image"></span>
                 <div class="upgrade-info" tooltip-text="Gera 10/s pontos">
                     <span class="upgrade-title">Upgrade 3</span>
